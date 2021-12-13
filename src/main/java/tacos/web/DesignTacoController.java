@@ -39,8 +39,8 @@ public class DesignTacoController {
 	
 	@GetMapping
 	public String showDesignForm(Model model) {
-		List<Ingredient> ingredients = ingredientRepo.findAll();
-
+		List<Ingredient> ingredients = new ArrayList<>();
+		ingredientRepo.findAll().forEach(i -> ingredients.add(i));
 		
 		Type[] types = Type.values();
 		for (Type type : types) {
@@ -76,11 +76,10 @@ public class DesignTacoController {
 		if (errors.hasErrors()) {
 			return "design";
 		}
-
+		
 		Taco saved = tacoRepo.save(design);
 		order.addDesign(saved);
-
-		log.info("design: {}", design);
+		
 		return "redirect:/orders/current";
 	}
 }

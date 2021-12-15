@@ -16,6 +16,11 @@ import tacos.Order;
 import tacos.Ingredient;
 import tacos.Ingredient.Type;
 import tacos.data.IngredientRepository;
+
+import java.security.Principal;
+import tacos.data.UserRepository;
+import tacos.User;
+
 import javax.validation.Valid;
 import org.springframework.validation.Errors;
 import tacos.data.TacoRepository;
@@ -31,14 +36,17 @@ public class DesignTacoController {
 	
 	private TacoRepository tacoRepo;
 	
+	private UserRepository userRepo;
+	
 	@Autowired
-	public DesignTacoController(IngredientRepository ingredientRepo, TacoRepository tacoRepo) {
+	public DesignTacoController(IngredientRepository ingredientRepo, TacoRepository tacoRepo, UserRepository userRepo) {
 		this.ingredientRepo = ingredientRepo;
 		this.tacoRepo = tacoRepo;
+		this.userRepo = userRepo;
 	}
 	
 	@GetMapping
-	public String showDesignForm(Model model) {
+	public String showDesignForm(Model model, Principal principal) {
 		List<Ingredient> ingredients = new ArrayList<>();
 		ingredientRepo.findAll().forEach(i -> ingredients.add(i));
 		
@@ -48,7 +56,9 @@ public class DesignTacoController {
 					filterByType(ingredients, type));
 		}
 		
-		model.addAttribute("taco", new Taco());
+		String username = principal.getName();
+		User user = userRepo.findByUsername(username);
+		model.addAttribute("user", user);
 		
 		return "design";
 	}

@@ -22,14 +22,14 @@ public class IngredientController {
   }
   
   @GetMapping
-  public String ingredientList(Model model) {
+  public String showAllIngredients(Model model) {
     log.info("Fetched all ingredients from a Feign client.");
     model.addAttribute("ingredients", client.getAllIngredients());
     return "ingredientList";
   }
   
   @GetMapping("/{id}")
-  public String ingredientDetailPage(@PathVariable("id") String id, Model model) {
+  public String getIngredientById(@PathVariable("id") String id, Model model) {
     log.info("Fetched an ingredient from a Feign client.");
     model.addAttribute("ingredient", client.getIngredient(id));
     return "ingredientDetail";

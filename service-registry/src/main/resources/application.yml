@@ -36,8 +36,8 @@ eureka:
 
 other:
   eureka:
-    host: eureka2.tacocloud.com
-    port: 8761
+    host: localhost
+    port: 8762
 
 ---
 spring:
@@ -50,9 +50,9 @@ server:
 
 eureka:
   instance:
-    hostname: eureka2.tacocloud.com
+    hostname: eureka1.tacocloud.com
 
 other:
   eureka:
-    host: eureka1.tacocloud.com
+    host: localhost
     port: 8762

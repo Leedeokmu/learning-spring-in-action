@@ -5,7 +5,7 @@
 
 	<groupId>sia5</groupId>
 	<artifactId>ingredient-service</artifactId>
-	<version>0.0.17-SNAPSHOT</version>
+	<version>0.0.18-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>ingredient-service</name>
@@ -93,10 +93,6 @@
 			<plugin>
 				<groupId>pl.project13.maven</groupId>
 				<artifactId>git-commit-id-plugin</artifactId>
-				<configuration>
-                	<skip>true</skip>
-                	<!-- more config here as you see fit -->
-            	</configuration>
 			</plugin>
 		</plugins>
 	</build>

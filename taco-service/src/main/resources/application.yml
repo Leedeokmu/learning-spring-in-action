@@ -1,6 +1,6 @@
 spring:
   application:
-    name: ingredient-client
+    name: taco-service
 
 #
 # Note that the config server URI configured here is different than the one that
@@ -25,7 +25,7 @@ management:
   info:
     git:
       mode: full
-        
+          
 info:
   contact:
     email: support@tacocloud.com

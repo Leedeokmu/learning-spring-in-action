@@ -5,7 +5,7 @@
 
 	<groupId>sia5</groupId>
 	<artifactId>ingredient-client</artifactId>
-	<version>0.0.16-SNAPSHOT</version>
+	<version>0.0.17-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>ingredient-client</name>
@@ -97,10 +97,6 @@
 						</goals>
 					</execution>
 				</executions>
-				<configuration>
-                	<skip>true</skip>
-                	<!-- more config here as you see fit -->
-            	</configuration>
 			</plugin>
 			<plugin>
 				<groupId>pl.project13.maven</groupId>
